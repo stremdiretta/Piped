@@ -31,7 +31,7 @@ export default {
         };
     },
     methods: {
-        onKeyUp(e) {
+        onKeyDown(e) {
             if (e.key === "ArrowUp") {
                 if (this.selected <= 0) {
                     this.setSelected(this.searchSuggestions.length - 1);

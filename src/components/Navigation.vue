@@ -23,7 +23,7 @@
                 role="search"
                 :title="$t('actions.search')"
                 :placeholder="$t('actions.search')"
-                @keyup="onKeyUp"
+                @keyup="onKeyDown"
                 @focus="onInputFocus"
                 @blur="onInputBlur"
             />
@@ -56,7 +56,7 @@
             role="search"
             :title="$t('actions.search')"
             :placeholder="$t('actions.search')"
-            @keyup="onKeyUp"
+            @keydown="onKeyDown"
             @focus="onInputFocus"
             @blur="onInputBlur"
         />
@@ -91,7 +91,7 @@ export default {
         },
     },
     methods: {
-        onKeyUp(e) {
+        onKeyDown(e) {
             if (e.key === "Enter") {
                 e.target.blur();
                 this.$router.push({
@@ -102,7 +102,7 @@ export default {
             } else if (e.key === "ArrowUp" || e.key === "ArrowDown") {
                 e.preventDefault();
             }
-            this.$refs.searchSuggestions.onKeyUp(e);
+            this.$refs.searchSuggestions.onKeyDown(e);
         },
         onInputFocus() {
             this.suggestionsVisible = true;
